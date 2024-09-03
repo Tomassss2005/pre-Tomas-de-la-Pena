@@ -1,0 +1,23 @@
+{% extends 'servicios/principal.html' %}
+
+{% block header %}
+<h1 style="color: black; text-transform: uppercase; text-align: center; font-size: 50px;">Pedidos: Registros</h1>
+{% endblock header %}
+
+{% block main %}
+    <button style="margin-left: 640px; margin-top: 15px;">
+        <a style="color: black; text-decoration: none; text-align: center;" href="{% url 'pedido_create' %}">Crear Registro</a>
+    </button>
+
+{% for object in object_list %}
+    <p style="text-align: center;"> 
+        Usuario: {{ object.usuario | upper}} |
+        Servicio: {{ object.servicio | upper }} |
+        Fecha: | {{ object.fecha_entregado | date:"d/m/Y"}}
+        Estado: {{ object.estado }}
+    </p>
+{% empty %}
+    <p style="text-align: center; color: black; text-transform: uppercase; font-size: 15px;">No hay registro</p>
+{% endfor %}
+
+{% endblock main %}

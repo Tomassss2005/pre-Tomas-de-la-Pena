@@ -1,0 +1,13 @@
+{% extends 'servicios/principal.html' %}
+
+{% block header %}
+    <h1 style="text-align: center; color: black; text-transform: uppercase;">Usuarios: Formulario</h1>
+{% endblock header %}
+
+{% block main %}
+    <form style="text-align: center;" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style="margin-left: 48px;" type="submit">Enviar</button>
+    </form>
+{% endblock main %}
